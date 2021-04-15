@@ -1,4 +1,3 @@
-import {FlightService} from "./flight.service";
 import {DefaultFlightService} from "./default-flight.service";
 import {DummyFlightService} from "./dummy-flight.service";
 import {AbstractFlightService} from "./abstract-flight.service";

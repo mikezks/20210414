@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from "rxjs";
-import {Flight} from "../entities/flight";
+import {Flight} from "../../entities/flight";
 import {AbstractFlightService} from "./abstract-flight.service";
 import {DefaultFlightService} from "./default-flight.service";
 import {DummyFlightService} from "./dummy-flight.service";
-import {environment} from "../../environments/environment";
+import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {serviceDictionary} from "./service-dictionary";
 

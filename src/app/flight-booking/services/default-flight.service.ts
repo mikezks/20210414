@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable, of} from "rxjs";
-import {Flight} from "../entities/flight";
-import {environment} from "../../environments/environment";
+import {Flight} from "../../entities/flight";
+import {environment} from "../../../environments/environment";
 import {AbstractFlightService} from "./abstract-flight.service";
 import {tap} from "rxjs/operators";
 

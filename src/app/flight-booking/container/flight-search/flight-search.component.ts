@@ -1,10 +1,7 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Observable, timer } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
-import { Flight } from '../entities/flight';
-import {FlightService} from "./flight.service";
+import {HttpHeaders} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {Flight} from '../../../entities/flight';
+import {FlightService} from "../../services/flight.service";
 
 @Component({
   selector: 'app-flight-search',
@@ -18,7 +15,9 @@ export class FlightSearchComponent implements OnInit {
   selectedFlight: Flight;
   headers: HttpHeaders;
 
-  constructor(private flightService: FlightService) { }
+  constructor(
+    private flightService: FlightService,
+  ) { }
 
   ngOnInit(): void {
   }

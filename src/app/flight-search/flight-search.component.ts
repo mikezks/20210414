@@ -4,6 +4,7 @@ import { Observable, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Flight } from '../entities/flight';
+import {FlightService} from "./flight.service";
 
 @Component({
   selector: 'app-flight-search',
@@ -17,24 +18,13 @@ export class FlightSearchComponent implements OnInit {
   selectedFlight: Flight;
   headers: HttpHeaders;
 
-  constructor(private http: HttpClient) { }
+  constructor(private flightService: FlightService) { }
 
   ngOnInit(): void {
   }
 
   search(): void {
-    // const url = environment.url + 'flight';
-    const url = `${ environment.url }flight`;
-
-    const params = new HttpParams()
-      .set('from', this.from)
-      .set('to', this.to);
-
-    const headers = new HttpHeaders()
-      .set('Accept', 'application/json');
-
-    const serverStream = this.http
-      .get<Flight[]>(url, { params, headers } )
+    this.flightService.find(this.from, this.to)
       .subscribe(
         flights => this.flights = flights
       );

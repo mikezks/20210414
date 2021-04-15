@@ -4,5 +4,5 @@ export interface Flight {
   from: string;
   to: string;
   date: string; // ISO Date
-  delayed: boolean;
+  delayed?: boolean;
 }

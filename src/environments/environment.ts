@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url: 'http://www.angular.at/api/'
+  url: 'http://www.angular.at/api/',
+  flightService: 'default'
 };
 
 /*

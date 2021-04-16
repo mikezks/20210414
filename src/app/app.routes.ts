@@ -14,11 +14,11 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'flight-booking/flight-search',
-    component: FlightSearchComponent
+    path: 'flight-booking',
+    loadChildren: () => import('./flight-booking/flight-booking.module').then(esm => esm.FlightBookingModule)
   },
   {
-    path: 'flight-booking/flight-edit',
-    component: FlightEditComponent
+    path: '**',
+    redirectTo: 'home'
   }
 ];

@@ -45,4 +45,12 @@ export class FlightEditComponent implements OnInit {
     console.log('touched', this.editForm.touched);
   }
 
+  resetForm(): void {
+    this.editForm.patchValue({
+      id: 999,
+      from: 'My default city',
+      to: 'Hawaii',
+      date: ''
+    });
+  }
 }

@@ -9,7 +9,7 @@
       <form>
           <div class="form-group">
               <label>From:</label>
-              <input [name]="medicalCaseState.INPATIENT" [(ngModel)]="from" class="form-control">
+              <input name="from" [(ngModel)]="from" class="form-control">
           </div>
           <div class="form-group">
               <label>To:</label>
@@ -42,8 +42,8 @@
           *ngFor="let flight of flights"
           [class.active]="selectedFlight === flight">
           <td>{{ flight.id }}</td>
-          <td>{{ flight.from | city }}</td>
-          <td>{{ flight.to | city:'short' }}</td>
+          <td>{{ flight.from | city | async }}</td>
+          <td>{{ flight.to | city:'short' | async }}</td>
           <td>{{ flight.date | date:'dd.MM.yyyy HH:mm' }}</td>
           <td>
               <a class="click-link" (click)="select(flight)">Select</a>

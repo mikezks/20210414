@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {CoreModule} from "./core/core.module";
-import {FlightBookingModule} from "./flight-booking/flight-booking.module";
+import {CoreModule} from './core/core.module';
+import {FlightBookingModule} from './flight-booking/flight-booking.module';
+import { DummyFlightService } from './flight-booking/services/dummy-flight.service';
+import { DefaultFlightService } from './flight-booking/services/default-flight.service';
 
 @NgModule({
    imports: [
@@ -16,7 +18,6 @@ import {FlightBookingModule} from "./flight-booking/flight-booking.module";
    declarations: [
       AppComponent
    ],
-   providers: [],
    bootstrap: [
       AppComponent
    ]

@@ -1,7 +1,7 @@
 import {HttpHeaders} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {Flight} from '../../../entities/flight';
-import {FlightService} from "../../services/flight.service";
+import {FlightService} from '../../services/flight.service';
 
 @Component({
   selector: 'app-flight-search',

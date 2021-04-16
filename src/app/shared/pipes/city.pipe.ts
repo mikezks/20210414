@@ -1,15 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Observable, of, timer } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Pipe({
   name: 'city'
 })
 export class CityPipe implements PipeTransform {
 
-  transform(value: string, fmt?: string): string {
+  transform(value: string, fmt?: string): Observable<string> {
     let short: string;
     let long: string;
 
-    switch(value) {
+    switch (value) {
       case 'Graz':
         short = 'GRZ';
         long = 'Flughafen Graz Thalerhof';
@@ -23,10 +25,10 @@ export class CityPipe implements PipeTransform {
     }
 
     if (fmt === 'short') {
-      return short;
+      return of(short).pipe(delay(3000));
     }
 
-    return long;
+    return of(long);
   }
 
 }

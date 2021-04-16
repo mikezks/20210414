@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import {AbstractFlightService} from "./abstract-flight.service";
-import {Observable, of} from "rxjs";
-import {Flight} from "../../entities/flight";
+import {AbstractFlightService} from './abstract-flight.service';
+import {Observable, of} from 'rxjs';
+import {Flight} from '../../entities/flight';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DummyFlightService implements AbstractFlightService {
 
   constructor() { }

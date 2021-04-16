@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { debounceTime } from 'rxjs/operators';
 import { validateCity, validateCityWithParams } from 'src/app/shared/validation/city-validator';
 
@@ -10,8 +11,11 @@ import { validateCity, validateCityWithParams } from 'src/app/shared/validation/
 })
 export class FlightEditComponent implements OnInit {
   editForm: FormGroup;
+  id: number;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.editForm = this.fb.group({
@@ -31,6 +35,14 @@ export class FlightEditComponent implements OnInit {
       ]],
       date: [new Date()]
     });
+
+    this.route.paramMap
+      .subscribe(
+        params => {
+          this.id = +params.get('id');
+          this.editForm.patchValue({ id: this.id });
+        }
+      );
 
     this.editForm.valueChanges.pipe(
         debounceTime(300)

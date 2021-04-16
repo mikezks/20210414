@@ -7,11 +7,14 @@ import {CoreModule} from './core/core.module';
 import {FlightBookingModule} from './flight-booking/flight-booking.module';
 import { DummyFlightService } from './flight-booking/services/dummy-flight.service';
 import { DefaultFlightService } from './flight-booking/services/default-flight.service';
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routes';
 
 @NgModule({
    imports: [
       BrowserModule,
       HttpClientModule,
+      RouterModule.forRoot(routes),
       CoreModule,
       FlightBookingModule
    ],

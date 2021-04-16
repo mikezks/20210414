@@ -6,19 +6,44 @@
 
   <div class="content">
 
-      <form>
+      <form #searchForm="ngForm">
           <div class="form-group">
               <label>From:</label>
-              <input name="from" [(ngModel)]="from" class="form-control">
+              <input name="from" [(ngModel)]="from" class="form-control" required minlength="3" [city]="['Hamburg', 'Wien']">
           </div>
+          <div class="alert alert-danger" *ngIf="searchForm?.controls?.from?.invalid">
+            From is invalid now!
+          </div>
+          <div class="alert alert-danger" *ngIf="searchForm?.controls?.from?.hasError('required')">
+            From is mandatory!
+          </div>
+          <div class="alert alert-danger" *ngIf="searchForm?.controls?.from?.hasError('minlength')">
+            Please enter at least 3 chars!
+          </div>
+          <div class="alert alert-danger" *ngIf="searchForm?.controls?.from?.hasError('city')">
+            Use a valid city name! {{ searchForm?.controls?.from?.errors?.city?.allowedCities | json }}
+          </div>
+
           <div class="form-group">
               <label>To:</label>
-              <input name="to" [(ngModel)]="to" class="form-control">
+              <input name="to" [(ngModel)]="to" class="form-control" required minlength="3" [city]="['Berlin', 'Graz']">
+          </div>
+          <div class="alert alert-danger" *ngIf="searchForm?.controls?.to?.invalid">
+            To is invalid now!
+          </div>
+          <div class="alert alert-danger" *ngIf="searchForm?.controls?.to?.hasError('required')">
+            To is mandatory!
+          </div>
+          <div class="alert alert-danger" *ngIf="searchForm?.controls?.to?.hasError('minlength')">
+            Please enter at least 3 chars!
+          </div>
+          <div class="alert alert-danger" *ngIf="searchForm?.controls?.to?.hasError('city')">
+            Use a valid city name! {{ searchForm?.controls?.to?.errors?.city?.allowedCities | json }}
           </div>
 
           <div class="form-group">
           <button
-              class="btn btn-default" [disabled]="!from || !to" (click)="search()">Search</button>
+              class="btn btn-default" [disabled]="!searchForm?.valid" (click)="search()">Search</button>
           </div>
       </form>
 

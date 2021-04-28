@@ -9,7 +9,7 @@
       <form #searchForm="ngForm">
           <div class="form-group">
               <label>From:</label>
-              <input name="from" [(ngModel)]="from" class="form-control" required minlength="3" [city]="['Hamburg', 'Wien']">
+              <input name="from" [(ngModel)]="from" class="form-control" required minlength="3" [city]="['Graz', 'Hamburg', 'Wien']">
           </div>
           <div class="alert alert-danger" *ngIf="searchForm?.controls?.from?.invalid">
             From is invalid now!
@@ -26,7 +26,7 @@
 
           <div class="form-group">
               <label>To:</label>
-              <input name="to" [(ngModel)]="to" class="form-control" required minlength="3" [city]="['Berlin', 'Graz']">
+              <input name="to" [(ngModel)]="to" class="form-control" required minlength="3" [city]="['Hamburg', 'Berlin', 'Graz']">
           </div>
           <div class="alert alert-danger" *ngIf="searchForm?.controls?.to?.invalid">
             To is invalid now!
